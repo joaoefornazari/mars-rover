@@ -8,28 +8,28 @@
 
 			<div class="landing-position-box">
 				<label class="position-arg-label">X</label>
-				<input type="text" class="position-arg-input" name="x" id="x-position" onchange="addInitialXPosition()">
+				<input type="text" class="position-arg-input" name="x" id="x-position" onkeyup="addInitialPositionData(event, 'X')">
 			</div>
 
 			<div class="landing-position-box">
 				<label class="position-arg-label">Y</label>
-				<input type="text" class="position-arg-input" name="y" id="y-position" onchange="addInitialYPosition()">
+				<input type="text" class="position-arg-input" name="y" id="y-position" onkeyup="addInitialPositionData(event, 'Y')">
 			</div>
 
 			<div class="landing-position-box">
 				<label class="position-arg-label">DIR</label>
-				<input type="text" class="position-arg-input" name="x" id="direction-position" onchange="addInitialDirectionPosition()">
+				<input type="text" class="position-arg-input" name="x" id="direction-position" onkeyup="addInitialPositionData(event, 'DIR')">
 			</div>
 		</div>
 	</div>
 	<div class="user-input">
 		<label class="input-title">Instructions</label>
 		<div class="input-wrap instructions-wrap">
-			<input type="button" class="instructions-btn" id="spin-left-btn" value="SPIN LEFT" onclick="addSpinLeft()">
-			<input type="button" class="instructions-btn" id="spin-right-btn" value="SPIN RIGHT" onclick="addSpinRight()">
-			<input type="button" class="instructions-btn" id="move-btn" value="MOVE" onclick="addMove()">
+			<input type="button" class="instructions-btn" id="spin-left-btn" value="SPIN LEFT" onclick="addMove('L')">
+			<input type="button" class="instructions-btn" id="spin-right-btn" value="SPIN RIGHT" onclick="addMove('R')">
+			<input type="button" class="instructions-btn" id="move-btn" value="MOVE" onclick="addMove('M')">
 		</div>
-		<span hidden id="move-sequence"></span>
+		<span id="move-sequence"></span>
 	</div>
 	<button disabled class="submit" onclick="sendMoves()">SEND MOVES</button>
 	<div class="user-output hidden">
