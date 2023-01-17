@@ -25,14 +25,15 @@
 	<div class="user-input">
 		<label class="input-title">Instructions</label>
 		<div class="input-wrap instructions-wrap">
-			<input type="button" class="instructions-btn" id="spin-left-btn" value="Spin Left" onclick="addSpinLeft()">
-			<input type="button" class="instructions-btn" id="spin-right-btn" value="Spin Right" onclick="addSpinRight()">
-			<input type="button" class="instructions-btn" id="move-btn" value="Move" onclick="addMove()">
+			<input type="button" class="instructions-btn" id="spin-left-btn" value="SPIN LEFT" onclick="addSpinLeft()">
+			<input type="button" class="instructions-btn" id="spin-right-btn" value="SPIN RIGHT" onclick="addSpinRight()">
+			<input type="button" class="instructions-btn" id="move-btn" value="MOVE" onclick="addMove()">
 		</div>
+		<span hidden id="move-sequence"></span>
 	</div>
-	<button disabled class="submit" onclick="sendMoves()">Send Moves</button>
-	<div class="user-output" hidden>
+	<button disabled class="submit" onclick="sendMoves()">SEND MOVES</button>
+	<div class="user-output hidden">
 		<label class="output-title">Final Position</label>
-		<span class="final-position-output"></span>
+		<span class="final-position-output">1 1 N</span>
 	</div>
 @endsection
