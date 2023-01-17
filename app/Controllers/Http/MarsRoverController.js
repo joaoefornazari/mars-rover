@@ -11,7 +11,7 @@ class MarsRoverController {
 	 * @param {Object} args HTTP Request.
 	 * @returns response
 	 */
-	async journey({ request, response, session }) {
+	async journey({ request, response }) {
 		this.marsRover = new MarsRover()
 		
 		await this.saveMoves(request.input('moves'))
