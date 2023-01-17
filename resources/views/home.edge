@@ -1,0 +1,38 @@
+@layout('main')
+
+@section('content')
+	<h1>Mars Rover</h1>
+	<div class="user-input">
+		<label class="input-title">Landing Position</label>
+		<div class="input-wrap landing-position-wrap">
+
+			<div class="landing-position-box">
+				<label class="position-arg-label">X</label>
+				<input type="text" class="position-arg-input" name="x" id="x-position" onchange="addInitialXPosition()">
+			</div>
+
+			<div class="landing-position-box">
+				<label class="position-arg-label">Y</label>
+				<input type="text" class="position-arg-input" name="y" id="y-position" onchange="addInitialYPosition()">
+			</div>
+
+			<div class="landing-position-box">
+				<label class="position-arg-label">DIR</label>
+				<input type="text" class="position-arg-input" name="x" id="direction-position" onchange="addInitialDirectionPosition()">
+			</div>
+		</div>
+	</div>
+	<div class="user-input">
+		<label class="input-title">Instructions</label>
+		<div class="input-wrap instructions-wrap">
+			<input type="button" class="instructions-btn" id="spin-left-btn" value="Spin Left" onclick="addSpinLeft()">
+			<input type="button" class="instructions-btn" id="spin-right-btn" value="Spin Right" onclick="addSpinRight()">
+			<input type="button" class="instructions-btn" id="move-btn" value="Move" onclick="addMove()">
+		</div>
+	</div>
+	<button disabled class="submit" onclick="sendMoves()">Send Moves</button>
+	<div class="user-output" hidden>
+		<label class="output-title">Final Position</label>
+		<span class="final-position-output"></span>
+	</div>
+@endsection
