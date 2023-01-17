@@ -33,8 +33,6 @@ function addInitialPositionData(event, data) {
 
 function addMove(move) {
 	roverData.moves += move
-	console.log(roverData.moves)
-
 	showMoveHistory()
 
 	const buttonSubmit = document.querySelector('.submit')
@@ -46,6 +44,12 @@ function showMoveHistory() {
 	moveSequenceText.textContent = roverData.moves
 }
 
-function sendMoves() {
+async function sendMoves() {
+	try {
+		const res = await axios.post('/marsrover/go', roverData)
 	
+		console.log(res)
+	} catch (ex) {
+		console.log(ex)
+	}
 }
