@@ -1,6 +1,6 @@
 'use strict'
 
-const { MarsRover } = require('App/Classes/MarsRover')
+const MarsRover = require('../../Classes/MarsRover')
 const MovesModel = use('App/Models/MarsRover/MarsRoverMoves')
 
 class MarsRoverController {
@@ -11,15 +11,15 @@ class MarsRoverController {
 	 * @param {Object} args HTTP Request.
 	 * @returns response
 	 */
-	async journey({ request, response }) {
+	async journey({ request, response, session }) {
 		this.marsRover = new MarsRover()
 		
-		await this.saveMoves(request.input('moves'))
+		await this.saveMoves(request.input('moves'), session)
 		await this.setStartingPosition(request.input('initialPosition'))
 		await this.runMoves(request.input('moves'))		
 
-		const position = marsRover.getAllPositionData()
-		return response.status(200).send(position)
+		const position = this.marsRover.position
+		return position
 	}
 
 	/**
@@ -27,9 +27,9 @@ class MarsRoverController {
 	 * @param {Object} initialPosition A JSON object with x, y and direction data.
 	 */
 	async setStartingPosition(initialPosition) {
-		this.marsRover.setPositionX(initialPosition.x)
-		this.marsRover.setPositionY(initialPosition.y)
-		this.marsRover.setPositionDirection(initialPosition.direction)
+		this.marsRover.position.x = initialPosition.x
+		this.marsRover.position.y = initialPosition.y
+		this.marsRover.position.direction = initialPosition.direction
 	}
 
 	/**
@@ -42,7 +42,7 @@ class MarsRoverController {
 			const hasToMove = command === "M"
 
 			// If it's not going to [M]ove, it'll spin its head to [L]eft or [R]ight.
-			hasToMove ? marsRover.move() : marsRover.changeDirection(command)
+			hasToMove ? this.marsRover.move() : this.marsRover.changeDirection(command)
 		}
 	}
 
@@ -50,11 +50,11 @@ class MarsRoverController {
 	 * Save move sequence to database.
 	 * @param {String} moveList The sequence of moves sent.
 	 */
-	async saveMoves(moveList) {
-		const moves = new MovesModel()
-		moves.list = moveList
+	async saveMoves(moveList, session) {
+		const movesModel = new MovesModel()
+		movesModel.moves = moveList
 
-		await moves.save()
+		await movesModel.save()
 
 		session.flash({ notification: 'Moves saved.'})
 	}
