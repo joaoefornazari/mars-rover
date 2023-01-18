@@ -41,6 +41,11 @@ function addMove(move) {
 	if (buttonSubmit.hasAttribute('disabled')) buttonSubmit.removeAttribute('disabled')
 }
 
+function cleanMoves() {
+	roverData.moves = ''
+	document.querySelector('#move-sequence').textContent = ''
+}
+
 function showMoveHistory() {
 	const moveSequenceText = document.querySelector('#move-sequence')
 	moveSequenceText.textContent = roverData.moves
