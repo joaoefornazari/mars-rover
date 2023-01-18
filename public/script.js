@@ -14,9 +14,10 @@ function formatInput(input, text) {
 	}
 
 	text = text.toUpperCase()
+	if (text === "") return text
 
 	if (input.id === "direction-position") {
-		if (!text.match('/N|S|W|E|\t/')) text = 'N'
+		if (!text.match('/N|S|W|E|\t|\s/')) text = 'N'
 	}
 
 	input.value = text
