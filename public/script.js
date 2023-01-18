@@ -47,9 +47,24 @@ function showMoveHistory() {
 async function sendMoves() {
 	try {
 		const res = await axios.post('/marsrover/go', roverData)
-	
-		console.log(res)
+		const position = res.data
+
+		const userOutputArea = document.querySelector('.user-output')
+		if (!userOutputArea.classList.contains('hidden')) userOutputArea.classList.add('hidden')
+
+		showFinalPosition(position)
+
 	} catch (ex) {
 		console.log(ex)
 	}
+}
+
+function showFinalPosition(position) {
+
+	const userOutputArea = document.querySelector('.user-output')
+	userOutputArea.classList.remove('hidden')
+		
+	const finalPosition = document.querySelector('final-position-output')
+	finalPosition.textContent = `${position.x} ${position.y} ${position.direction}`
+
 }
