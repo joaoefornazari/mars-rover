@@ -61,6 +61,7 @@ async function sendMoves() {
 		if (!userOutputArea.classList.contains('hidden')) userOutputArea.classList.add('hidden')
 
 		showFinalPosition(position)
+		cleanMoves()
 
 	} catch (ex) {
 		console.log(ex)
