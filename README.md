@@ -1,31 +1,29 @@
-# Adonis fullstack application
+# Mars Rover
 
-This is the fullstack boilerplate for AdonisJs, it comes pre-configured with.
+This is a Mars Rover simulation.
+You input the rover' first position, tell it which moves it will do and hit 'Send Moves' button.
+After it, the page will print the final position of Mars Rover!
 
-1. Bodyparser
-2. Session
-3. Authentication
-4. Web security middleware
-5. CORS
-6. Edge template engine
-7. Lucid ORM
-8. Migrations and seeds
+Example:
+
+![mars-rover](https://user-images.githubusercontent.com/28909189/213068146-828c57af-aa25-481f-b4ba-a1c97c80725f.png)
 
 ## Setup
 
-Use the adonis command to install the blueprint
-
-```bash
-adonis new yardstick
-```
-
-or manually clone the repo and then run `npm install`.
-
-
-### Migrations
-
-Run the following command to run startup migrations.
+Open your terminal on an empty folder and run the following commands:
 
 ```js
-adonis migration:run
+git clone git@github.com:joaoefornazari/mars-rover.git .
+npm install
+adonis migration:run // Before running this command, start a MySQL server on port 3306
 ```
+
+This will install all the project' dependencies and prepare the project environment on your machine.
+
+After this, to run the project, run
+
+```
+node server.js
+```
+
+and access `http://localhost:3333` on your web browser.
