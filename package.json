@@ -1,11 +1,11 @@
 {
-  "name": "adonis-fullstack-app",
+  "name": "mars-rover",
   "version": "4.1.0",
   "adonis-version": "4.1.0",
-  "description": "The fullstack application boilerplate for Adonisjs",
+  "description": "A Mars-Rover full stack web app simulation.",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
     "test": "node ace test"
   },
   "keywords": [
