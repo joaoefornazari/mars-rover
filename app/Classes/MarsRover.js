@@ -60,7 +60,7 @@ class MarsRover {
 			},
 			W: () => {
 				const x = Number(this.position.x)
-				this.position.x = Number(x - 1 <= 0 ? x : x - 1)
+				this.position.x = Number(x - 1 < 0 ? x : x - 1)
 			},
 			E: () => {
 				const x = Number(this.position.x)
