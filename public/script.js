@@ -13,6 +13,8 @@ function formatInput(input, text) {
 		text = text[1]
 	}
 
+	text = text.toUpperCase()
+
 	if (input.id === "direction-position") {
 		if (!text.match('/N|S|W|E|\t/')) text = 'N'
 	}
