@@ -51,20 +51,20 @@ class MarsRover {
 		const direction = this.position.direction
 		const actions = {
 			N: () => {
-				const y = this.getPositionY
-				this.position.y = y + 1 > MAX_SIZE ? y + 1 : y
+				const y = this.position.y
+				this.position.y = Number(y + 1 > MAX_SIZE ? y : y + 1)
 			},
 			S: () => {
-				const y = this.getPositionY
-				this.position.y = y - 1 > 0 ? y - 1 : y
+				const y = this.position.y
+				this.position.y = Number(y - 1 > 0 ? y - 1 : y)
 			},
 			W: () => {
-				const x = this.getPositionX
-				this.position.x = x - 1 < 0 ? x - 1 : x
+				const x = this.position.x
+				this.position.x = Number(x - 1 < 0 ? x : x - 1)
 			},
 			E: () => {
-				const x = this.getPositionX
-				this.position.x = x + 1 > MAX_SIZE ? x + 1 : x
+				const x = this.position.x
+				this.position.x = Number(x + 1 > MAX_SIZE ? x : x + 1)
 			}
 		}
 
