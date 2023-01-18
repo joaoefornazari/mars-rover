@@ -14,17 +14,17 @@ function formatInput(input, text) {
 	}
 
 	if (input.id === "direction-position") {
-		if (!text.match(/N|S|W|E/)) text = 'N'
+		if (!text.match('/N|S|W|E|\t/')) text = 'N'
 	}
 
 	input.value = text
+
+	return text
 }
 
 function addInitialPositionData(event, data) {
 	const input = event.target
-	let text = input.value
-
-	formatInput(input, text)
+	const text = formatInput(input, input.value)
 
 	if (data === 'X') roverData.initialPosition.x = text
 	if (data === 'Y') roverData.initialPosition.y = text
@@ -64,7 +64,7 @@ function showFinalPosition(position) {
 	const userOutputArea = document.querySelector('.user-output')
 	userOutputArea.classList.remove('hidden')
 		
-	const finalPosition = document.querySelector('final-position-output')
+	const finalPosition = document.querySelector('.final-position-output')
 	finalPosition.textContent = `${position.x} ${position.y} ${position.direction}`
 
 }
