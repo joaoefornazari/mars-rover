@@ -8,6 +8,11 @@ Example:
 
 ![mars-rover](https://user-images.githubusercontent.com/28909189/213068146-828c57af-aa25-481f-b4ba-a1c97c80725f.png)
 
+## Requirements
+
+- [XAMPP](https://www.apachefriends.org/pt_br/index.html) (or any another MySQL Server software running)
+- [Node](https://nodejs.org/en) (most recent version)
+
 ## Setup
 
 Open your terminal on an empty folder and run the following commands:
@@ -18,7 +23,7 @@ npm install
 adonis migration:run // Before running this command, start a MySQL server on port 3306
 ```
 
-This will install all the project' dependencies and prepare the project environment on your machine.
+This will install all the project's dependencies and prepare the project environment on your machine.
 
 After this, to run the project, run
 
